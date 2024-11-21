@@ -1,18 +1,29 @@
 #### Fonction secondaire
-
-
+'''
+Fonction palindrome
+'''
 def ispalindrome(p):
-
-    # votre code ici
-    
+    '''
+    Méthode qui teste si la chaine de caractère passé en paramètre est un palindrome
+    return : True si c'est un palindrome
+    '''
+    p=p.lower()
+    special= str.maketrans("éëêèàçùô","eeeeacuo")
+    p=p.translate(special)
+    for char in ["?", "!", ",", " ", ".", ":", "-","'"]:
+        p = p.replace(char, "")
+    n=p[::-1]
+    if n==p:
+        return True
     return False
 
 #### Fonction principale
 
 
 def main():
-
-    # vos appels à la fonction secondaire ici
+    '''
+    Méthode principale qui teste la fonction secondaire
+    '''
 
     for s in ["radar", "kayak", "level", "rotor", "civique", "deifie"]:
         print(s, ispalindrome(s))
